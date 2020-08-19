@@ -26,30 +26,15 @@ namespace Bolo.Logic.Extentions
             };
         }
 
-        public static ICardAbility GetCardAbility(this CardName cardName)
-        {
-            var reflectionNameSpace = typeof(ICardAbility).Namespace;
-            var typeToLoad = Type.GetType($"{reflectionNameSpace}.{cardName}CardAbility");
-            ICardAbility cardAbility;
-            if(typeToLoad == null)
-            {
-                cardAbility = new BoloCardAbility();
-            }
-            else
-            {
-                cardAbility = (ICardAbility)Activator.CreateInstance(typeToLoad);
-            }
-            return cardAbility;
-        }
 
-        public static ICardAbility GetCardAbility2(this CardName cardName)
+        public static ICardAbility GetCardAbility(this CardName cardName)
         {
             var reflectionNameSpace = typeof(IAbility).Namespace;
             var typeToLoad = Type.GetType($"{reflectionNameSpace}.{cardName}Ability");
             ICardAbility cardAbility;
             if (typeToLoad == null)
             {
-                cardAbility = new BoloCardAbility();
+                cardAbility = new BoloAbility();
             }
             else
             {

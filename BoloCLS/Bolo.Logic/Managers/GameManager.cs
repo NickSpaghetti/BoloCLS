@@ -175,7 +175,7 @@ namespace Bolo.Logic.Managers
             var cardNames = Enum.GetValues(typeof(CardName)).Cast<CardName>();
             foreach (var cardName in cardNames)
             {
-                var cardAbility = cardName.GetCardAbility2();
+                var cardAbility = cardName.GetCardAbility();
                 var cardValue = cardName.GetInitalCardValue();
                 var cardSet = GetSetOfCards(new Card(cardName, cardAbility, cardValue), 4).ToCards();
                 cards.AddRange(cardSet);
